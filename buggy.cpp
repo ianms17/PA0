@@ -13,13 +13,16 @@ void create_LL(vector<node*>& mylist, int node_num){
 
     //create a set of nodes
     for (int i = 0; i < node_num; i++) {
-        //Blank C
+        // Blank C
+        if (!mylist[i]) {
+            mylist[i] = new node();
+        }
         mylist[i]->val = i;
         mylist[i]->next = NULL;
     }
 
     //create a linked list
-    for (int i = 0; i < node_num; i++) {
+    for (int i = 0; i < node_num - 1; i++) {
         mylist[i]->next = mylist[i+1];
     }
 }
@@ -43,4 +46,7 @@ int main(int argc, char ** argv){
 
     //Step4: delete nodes
     //Blank D
+    for (int i = 0; i < NODE_NUM; ++i) {
+        delete mylist[i];
+    }
 }
